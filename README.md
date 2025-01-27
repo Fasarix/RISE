@@ -108,7 +108,7 @@ To run this project, you will need the following software and tools:
 ## Additional Info
 ### Notes
   - To make this project fully operational, it will be necessary to modify the comment fetching logic and tailor it to your specific requirements.
-  - It is advisable to use a custom machine learning model for post recognition, trained and tailored to your specific needs.
+  - It is advisable to use a custom machine learning model for post recognition (`praw_reddit.py` & `praw_reddit_custom.py`), trained and tailored to your specific needs.
 
 ### Hugging Face Models
 [![Sentiment Analysis](https://img.shields.io/badge/Hugging_Face%20%28Sentiment_Analysis%29-cardiffnlp/twitter--roberta--base--sentiment--latest-%234F88FF?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
