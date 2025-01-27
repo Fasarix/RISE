@@ -31,7 +31,7 @@ reddit = praw.Reddit(
     user_agent=os.getenv("REDDIT_USER_AGENT")  
 )
 
-subreddit_name = "Quosar_78rT_L5vMz87AL"  
+subreddit_name = "INSERT YOUR SUBREDDIT"  
 subreddit = reddit.subreddit(subreddit_name)
 
 output_path = './data/reddit_out/reddit_posts.ndjson'

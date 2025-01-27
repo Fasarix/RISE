@@ -29,20 +29,7 @@ def contains_relevant_word(title, relevant_words):
     title_lower = title.lower()  
     return any(relevant_word.lower() in title_lower for relevant_word in relevant_words) 
 
-relevant_words = {"Assassin's Creed Mirage",
-    "Avatar: Frontiers of Pandora",
-    "Rainbow Six Mobile",
-    "The Division Resurgence",
-    "Just Dance 24",
-    "Prince of Persia: The Lost Crown",
-    "Skull and Bones",
-    "The Crew Motorfest",
-    "XDefiant",
-    "Assassin's Creed Shadows",
-    "Anno 117: Pax Romana",
-    "Star Wars Outlaws",
-    "Avatar: Frontiers of Pandora - The Sky Breaker",
-    "Assassin's Creed Nexus VR"}
+relevant_words = {"KEYWORD_1", "KEYWORD_2"}
 
 reddit = praw.Reddit(
     client_id=os.getenv("REDDIT_CLIENT_ID"),        
@@ -50,7 +37,7 @@ reddit = praw.Reddit(
     user_agent=os.getenv("REDDIT_USER_AGENT")  
 )
 
-subreddit_name = "Quosar_78rT_L5vMz87AL"  
+subreddit_name = "INSERT YOUR SUBREDDIT"  
 subreddit = reddit.subreddit(subreddit_name)
 
 output_path = './data/reddit_out/reddit_posts_custom.ndjson'
