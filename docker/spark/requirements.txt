@@ -1,0 +1,8 @@
+kafka-python>=2.0.2
+pyspark>=3.5.4
+numpy>=2.2.1
+requests
+transformers
+pandas
+torch
+PyArrow

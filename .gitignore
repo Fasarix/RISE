@@ -1,0 +1,60 @@
+# Escludi file di configurazione sensibili
+.env
+*.env
+
+# Escludi i file generati da Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Escludi file generati dall'IDE
+.vscode/
+.idea/
+*.swp
+
+# Escludi file di log
+*.log
+*.out
+*.err
+
+# Escludi artefatti generati da Docker
+docker-compose.override.yml
+*.pid
+*.sock
+
+# Escludi file di build e di librerie
+build/
+dist/
+*.egg-info/
+
+# Escludi i file di virtual environment
+venv/
+.env/
+env/
+*.virtualenv
+
+# Escludi file di configurazione locali
+*.local
+*.config
+
+# Escludi dump di database o altri file binari
+*.sql
+*.sqlite3
+*.db
+*.dat
+
+# Escludi le immagini o dati Docker
+.docker/
+docker-data/
+
+# Escludi file di backup temporanei
+*.bak
+*.tmp
+*.old
+*.orig
+
+# Escludi file specifici del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,12 @@
+FROM bitnami/spark:3.4.3
+
+WORKDIR /app
+
+COPY docker/spark/requirements.txt /app/
+
+RUN pip install --no-cache-dir wheel
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/spark_app.py /app/
+COPY src/spark_app_custom.py /app/

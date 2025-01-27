@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "properties": {
+      "post_id": { "type": "keyword" },
+      "post_title": {
+        "type": "text",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          }
+        }
+      },
+      "comment_id": { "type": "keyword" },
+      "comment_body": {
+        "type": "text",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          }
+        }
+      },
+      "comment_score": { "type": "integer" },
+      "sentiment": { "type": "keyword" },
+      "categories": { "type": "keyword" },
+      "@timestamp": { "type": "date" },
+      "post_publish_time": { "type": "date" },
+      "comment_publish_time": { "type": "date" }
+    }
+  }
+}

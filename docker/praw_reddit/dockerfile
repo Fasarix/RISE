@@ -1,0 +1,12 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+COPY docker/praw_reddit/requirements.txt /app/
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY src/praw_reddit.py /app/
+COPY src/praw_reddit_custom.py /app/
+
+ENV PYTHONUNBUFFERED=1
