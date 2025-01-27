@@ -105,12 +105,9 @@ To run this project, you will need the following software and tools:
    
 ## Additional Info
 ### Notes
-  > [!TIP]
-  > Monitored subreddit can be changed by modifying the `subreddit_name` variable inside the `praw_reddit.py` file.
-  > <br><br>You can customize the keywords required in the title for a post to be fetched by modifying the `relevant_words` variable within the   `praw_reddit_custom.py` file.
-  
-  > [!IMPORTANT] 
-  > To make this project fully operational, it will be necessary to modify the comment fetching logic and tailor it to your specific requirements.
+  - Monitored subreddit can be changed by modifying the `subreddit_name` variable inside the `praw_reddit.py` file.
+  - You can customize the keywords required in the title for a post to be fetched by modifying the `relevant_words` variable within the   `praw_reddit_custom.py` file.
+  - To make this project fully operational, it will be necessary to modify the comment fetching logic and tailor it to your specific requirements.
 
 ### Hugging Face Models
 [![Sentiment Analysis](https://img.shields.io/badge/Hugging_Face%20%28Sentiment_Analysis%29-cardiffnlp/twitter--roberta--base--sentiment--latest-%234F88FF?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
