@@ -35,8 +35,6 @@
     <li><a href="#additional-info">Additional Info</a>
       <ul>
         <li><a href="#notes">Notes</a></li>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#spark-connectors">Spark Connectors</a></li>
         <li><a href="#hugging-face-models">Hugging Face Models</a></li>
       </ul>
     </li>
