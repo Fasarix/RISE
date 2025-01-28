@@ -110,7 +110,7 @@ To run this project, you will need the following software and tools:
   - To make this project fully operational, it will be necessary to modify the comment fetching logic and tailor it to your specific requirements.
   - A custom machine learning model for post recognition (`praw_reddit.py` & `praw_reddit_custom.py`), trained and tailored to your specific needs is needed to customize your project.
   - You can freely modify the categories used for classification in the `spark_app.py` and `spark_app_custom.py` file within the payload configuration.
-    ```html
+    ```python
     payload = {"inputs": batch.tolist(),
                "parameters": {"candidate_labels": ["Category1", "Category2", "Category3", "Category4", "Category5"]}}
     ```
