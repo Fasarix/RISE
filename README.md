@@ -109,6 +109,11 @@ To run this project, you will need the following software and tools:
 ### Notes
   - To make this project fully operational, it will be necessary to modify the comment fetching logic and tailor it to your specific requirements.
   - A custom machine learning model for post recognition (`praw_reddit.py` & `praw_reddit_custom.py`), trained and tailored to your specific needs is needed to customize your project.
+  - You can freely modify the categories used for classification in the `spark_app.py` and `spark_app_custom.py` file within the payload configuration.
+    ```html
+    payload = {"inputs": batch.tolist(),
+               "parameters": {"candidate_labels": ["Category1", "Category2", "Category3", "Category4", "Category5"]}}
+    ```
 
 ### Hugging Face Models
 [![Sentiment Analysis](https://img.shields.io/badge/Hugging_Face%20%28Sentiment_Analysis%29-cardiffnlp/twitter--roberta--base--sentiment--latest-%234F88FF?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest)
