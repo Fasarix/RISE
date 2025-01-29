@@ -1,27 +1,27 @@
 services:
-  # praw-reddit:
-  #   build:
-  #     context: .
-  #     dockerfile: docker/praw_reddit/dockerfile
-  #   container_name: praw_reddit
-  #   env_file:
-  #     - reddit.env
-  #   volumes:
-  #     - ./data/reddit_out:/app/data/reddit_out 
-  #     - ./model:/app/model
-  #   command: ["python", "/app/praw_reddit.py"]
+   praw-reddit:
+     build:
+       context: .
+       dockerfile: docker/praw_reddit/dockerfile
+     container_name: praw_reddit
+     env_file:
+       - reddit.env
+     volumes:
+       - ./data/reddit_out:/app/data/reddit_out 
+       - ./model:/app/model
+     command: ["python", "/app/praw_reddit.py"]
 
-  # praw-reddit_custom:
-  #   build:
-  #     context: .
-  #     dockerfile: docker/praw_reddit/dockerfile
-  #   container_name: praw_reddit_custom
-  #   env_file:
-  #     - reddit.env
-  #   volumes:
-  #     - ./data/reddit_out:/app/data/reddit_out 
-  #     - ./model:/app/model
-  #   command: ["python", "/app/praw_reddit_custom.py"]
+   praw-reddit_custom:
+     build:
+       context: .
+       dockerfile: docker/praw_reddit/dockerfile
+     container_name: praw_reddit_custom
+     env_file:
+       - reddit.env
+     volumes:
+       - ./data/reddit_out:/app/data/reddit_out 
+       - ./model:/app/model
+     command: ["python", "/app/praw_reddit_custom.py"]
 
   broker:
     image: apache/kafka:latest
@@ -75,20 +75,20 @@ services:
       - ./data/reddit_out:/data/reddit_out
     mem_limit: 1g
 
-  # logstash_custom:
-  #   image: docker.elastic.co/logstash/logstash:8.17.0
-  #   container_name: logstash_custom
-  #   environment:
-  #     XPACK_MONITORING_ENABLED: "false"
-  #     KAFKA_BROKER: "broker:9092"
-  #     LS_JAVA_OPTS: "-Xms500m -Xmx500m"
-  #   depends_on:
-  #     - broker
-  #   volumes:
-  #     - ./docker/logstash/logstash_custom.conf:/usr/share/logstash/pipeline/logstash.conf:ro
-  #     - ./docker/logstash/custom_sincedb:/docker/logstash/custom_sincedb
-  #     - ./data/reddit_out:/data/reddit_out
-  #   mem_limit: 1g
+   logstash_custom:
+     image: docker.elastic.co/logstash/logstash:8.17.0
+     container_name: logstash_custom
+     environment:
+       XPACK_MONITORING_ENABLED: "false"
+       KAFKA_BROKER: "broker:9092"
+       LS_JAVA_OPTS: "-Xms500m -Xmx500m"
+     depends_on:
+       - broker
+     volumes:
+       - ./docker/logstash/logstash_custom.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+       - ./docker/logstash/custom_sincedb:/docker/logstash/custom_sincedb
+       - ./data/reddit_out:/data/reddit_out
+     mem_limit: 1g
 
   spark:
     build:
@@ -113,28 +113,28 @@ services:
         condition: service_healthy
     mem_limit: 4g
 
-  # spark_custom:
-  #   build:
-  #     context: .
-  #     dockerfile: docker/spark/dockerfile
-  #   container_name: spark_custom
-  #   env_file:
-  #     - ./docker/spark/hf.env
-  #   volumes:
-  #     - ./data/spark:/app/data/spark
-  #   ports:
-  #     - "4041:4041"
-  #   environment:
-  #     - SPARK_DRIVER_MEMORY=2g
-  #     - SPARK_EXECUTOR_MEMORY=2g
-  #     - HF_HOME=/app/data/spark/huggingface_cache
-  #   command: ["spark-submit", "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.4,org.elasticsearch:elasticsearch-spark-30_2.12:8.17.0", "/app/spark_app_custom.py"]
-  #   depends_on:
-  #     broker:
-  #       condition: service_healthy
-  #     elasticsearch:
-  #       condition: service_healthy
-  #   mem_limit: 4g
+   spark_custom:
+     build:
+       context: .
+       dockerfile: docker/spark/dockerfile
+     container_name: spark_custom
+     env_file:
+       - ./docker/spark/hf.env
+     volumes:
+       - ./data/spark:/app/data/spark
+     ports:
+       - "4041:4041"
+     environment:
+       - SPARK_DRIVER_MEMORY=2g
+       - SPARK_EXECUTOR_MEMORY=2g
+       - HF_HOME=/app/data/spark/huggingface_cache
+     command: ["spark-submit", "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.4,org.elasticsearch:elasticsearch-spark-30_2.12:8.17.0", "/app/spark_app_custom.py"]
+     depends_on:
+       broker:
+         condition: service_healthy
+       elasticsearch:
+         condition: service_healthy
+     mem_limit: 4g
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0
